@@ -33,7 +33,7 @@ public class Problem409 {
          }
       }
 
-      sum = (add1) ? sum + 1 : sum;z
+      sum = (add1) ? sum + 1 : sum;
       return sum;
    }
 }
