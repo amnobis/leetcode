@@ -24,18 +24,20 @@ public class Problem235 {
          return null;
       }
 
-      if (root == p || root == q) {
-         return root;
-      } else {
-         TreeNode left = lowestCommonAncestor(root.left, p, q);
-         TreeNode right = lowestCommonAncestor(root.right, p, q);
+      int lowVal = (p.val >  q.val) ? q.val : p.val;
+      int highVal = (p.val > q.val) ? p.val : q.val;
+      TreeNode res = null;
 
-         if (left != null && right != null) {
-            return root;
-         } else if (left != null) {
-            return left;
+      while (res == null) {
+         if (root.val < lowVal) {
+            root = root.right;
+         } else if (root.val > highVal){
+            root = root.left;
+         } else {
+            res = root;
          }
-         return right;
       }
+
+      return res;
    }
 }
