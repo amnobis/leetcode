@@ -3,7 +3,8 @@
  */
 public class Problem110 {
     public static void main(String[] args) {
-
+        TreeNode root = null;
+        isBalanced(root);
     }
 
     public static boolean isBalanced(TreeNode root) {
