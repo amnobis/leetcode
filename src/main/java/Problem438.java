@@ -11,39 +11,28 @@ public class Problem438 {
     }
 
     public static List<Integer> findAnagrams(String s, String p) {
-        Set<Character> pSet = new HashSet<>();
-
-        for (char val : p.toCharArray()) {
-            pSet.add(val);
+        List<Integer> list = new ArrayList<>();
+        if (s == null || s.length() == 0 || p == null || p.length() == 0) {
+            return list;
         }
+        int[] hash = new int[256];
 
-        List<Integer> out = new ArrayList<>();
-        Set<Character> tmp = new HashSet<>(pSet);
-        int star = 0;
-        int curr = 0;
-        int end = p.length() - 1;
+        p.chars().forEach(val -> hash[val]++);
 
-        while (end < s.length()) {
-            char valC = s.charAt(curr);
-            char valS = s.charAt(star);
+        int left = 0, right = 0, count = p.length();
+        while (right < s.length()) {
+            if (hash[s.charAt(right++)]-- >= 1) {
+                count--;
+            }
 
-            if (!tmp.contains(valC)) {
-                tmp = new HashSet<>(pSet);
-                star++;
-                end++;
-                curr = star;
-            } else {
-                tmp.remove(valC);
-                curr++;
-                if (tmp.size() == 0) {
-                    out.add(star);
-                    star++;
-                    end++;
-                    curr = end;
-                    tmp = new HashSet<>(pSet);
-                }
+            if (count == 0) {
+                list.add(left);
+            }
+
+            if (right-left == p.length() && hash[s.charAt(left++)]++ >= 0) {
+                count++;
             }
         }
-        return out;
+        return list;
     }
 }
