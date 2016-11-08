@@ -16,16 +16,16 @@ public class Problem299 {
 
 
         secret.chars().forEach(val -> {
-            vals[val-48]++;
+            vals[val - 48]++;
         });
 
         for (int i = 0; i < guess.length(); ++i) {
             int ind = guess.charAt(i);
 
-            if (secret.charAt(i) == guess.charAt(i) && vals[ind-48] > 0) {
-                vals[ind-48]--;
+            if (secret.charAt(i) == guess.charAt(i) && vals[ind - 48] > 0) {
+                vals[ind - 48]--;
                 bulls++;
-            }  else if (vals[ind-48] > 0) {
+            } else if (vals[ind - 48] > 0) {
                 cowies.add(i);
             }
         }
@@ -33,11 +33,11 @@ public class Problem299 {
         for (int moo : cowies) {
             int ind = guess.charAt(moo);
 
-            if (vals[ind-48] > 0) {
-                vals[ind-48]--;
+            if (vals[ind - 48] > 0) {
+                vals[ind - 48]--;
                 cows++;
             }
         }
         return bulls + "A" + cows + "B";
-
+    }
 }
