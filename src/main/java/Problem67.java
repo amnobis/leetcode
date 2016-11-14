@@ -68,8 +68,4 @@ public class Problem67 {
 
         return out.reverse().toString();
     }
-
-    private static Character decodeResult(int res) {
-
-    }
 }
