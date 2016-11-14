@@ -7,7 +7,7 @@ public class Problem111 {
     }
 
     public int minDepth(TreeNode root) {
-
+        return findDepth(root, 0);
     }
 
     public int findDepth(TreeNode root, int depth) {
