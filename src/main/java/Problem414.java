@@ -11,16 +11,18 @@ public class Problem414 {
     }
 
     public static int thirdMax(int[] nums) {
-        int[] max = new int[]{-1, -1, -1};
+        int[] max = new int[3];
         Set<Integer> seen = new HashSet<>();
+        Arrays.fill(max, Integer.MIN_VALUE);
 
         for (int num : nums) {
             if (num > max[0] && !seen.contains(num)) {
                 max[0] = num;
                 Arrays.sort(max);
-                seen.add(num);
             }
+            seen.add(num);
         }
-        return max[0];
+        return (seen.size() < 3) ? max[2] : max[0];
+    }
     }
 }
