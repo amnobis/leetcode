@@ -5,7 +5,7 @@ import java.util.Stack;
  */
 public class Problem155 {
     public static void main(String[] args) {
-        
+
     }
 
     public static class MinStack {
