@@ -24,5 +24,4 @@ public class Problem414 {
         }
         return (seen.size() < 3) ? max[2] : max[0];
     }
-    }
 }
